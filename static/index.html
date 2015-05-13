@@ -32,8 +32,16 @@
                     <h1 id="word">You Lose</h1>
                 </center>
                 <div class="jumbotron">
-                    <ul id="reasons">
-                    </ul>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <ul id="reasons">
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <ul id="reasons2">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,11 +113,16 @@ var reasonsElement = document.getElementById('reasons');
 
 function list_array() {
     var items = document.getElementById("reasons");
-
-    for (var i = 0; i < ass.length; i++) {
-        var item = document.createElement("li");
-        item.innerHTML = ass[i];
-        items.appendChild(item);
+    var items2 = document.getElementById("reasons2");
+    d = (ass.length / 2)
+    for (var i = 0; i < (d / 2); i++) {
+        for (var j = d; j < ass.length; j++) {
+            var item = document.createElement("li");
+            item.innerHTML = ass[i];
+            item2.innerHTML = ass[j];
+            items.appendChild(item);
+            items2.appendChild(item2);
+        }
     }
 
 }
