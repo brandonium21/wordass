@@ -1,5 +1,5 @@
 from flask import Flask, send_file, send_from_directory
-from flask import request, send_static_file
+from flask import request
 import unirest
 import threading
 import pickle
