@@ -21,165 +21,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
     <script>
-    var time = 6;
-    var timecounter = 0;
-    var btn = "Guess";
-    var status = "win";
-    var score = 0;
-    var ass = [];
-    var check = 0;
-    var ranWord = "";
-    var input = "";
-    var wordElement = document.getElementById('newWord');
-    var scoreElement = document.getElementById('score');
-    var inputElement = document.getElementById('input');
-    var score2Element = document.getElementById('view_score');
-    var reasonsElement = document.getElementById('reasons');
-    var items = document.getElementById("reasons");
-    var items2 = document.getElementById("reasons2");
-    var item = document.createElement("li");
-    var item2 = document.createElement("li");
-    
-    function list_array() {
-        console.log(ass)
-            //scoreElement.innerHTML = score;
-       
-
-        var d = (ass.length) / 2
-        for (var i = 0; i < d; i++) {
-            
-            item.innerHTML = ass[i];
-            items.appendChild(item);
-        }
-        for (var j = (d); j < ass.length; j++) {
-            
-            item2.innerHTML = ass[j];
-            items2.appendChild(item2);
-        }
-
-    }
-
-    function share() {
-        FB.ui({
-            method: 'feed',
-            title: 'I got a score of ' + score + 'points',
-            link: 'http://wordass.herokuapp.com/',
-            caption: 'Think you can beat me? Try!',
-        }, function(response) {
-            alert('Thank you for sharing!')
-        });
-    }
-
-
-    function counter() {
-        var timerElement = document.getElementById('counter');
-        if (time > 0) {
-            time--;
-
-        } else {
-            time = 6;
-            //status = "lose";
-            list_array()
-                //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
-            $('#myModal').modal('show');
-            $("#myModal").on('hidden.bs.modal', function() {
-                window.location.reload();
-            });
-            return;
-        }
-
-        timerElement.innerHTML = time;
-        setTimeout(counter, 1000);
-
-    }
-
-    //$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
-
-    function checkit() {
-        input = $('#input').val()
-        if (jQuery.inArray(input, ass) === -1) {
-            list_array()
-            $('#myModal').modal('show');
-            $("#myModal").on('hidden.bs.modal', function() {
-                window.location.reload();
-            });
-            return
-        } else {
-            return "ok"
-        }
-    }
-
-    function get_ass() {
-        $.ajax({
-            dataType: "json",
-            url: '/words',
-            data: {
-                "input": input
-            },
-            success: function(word) {
-                var wordElement = document.getElementById('newWord');
-                //var scoreElement = document.getElementById('score');
-                console.log(word)
-
-                $('#input').val('');
-                ranWord = word["word"];
-                wordElement.innerHTML = ranWord
-                ass = word["ass"]
-            }
-        });
-    }
-
-
-
-    function timedText() {
-        var btnElement = document.getElementById('btn');
-        var btnVal = btnElement.innerHTML;
-        if (btnVal === "Start!") {
-            btnElement.innerHTML = btn
-            get_ass();
-            counter();
-        } else {
-            if (timecounter < 1) {
-                //counter();
-
-                time = 7;
-                timecounter++
-                if (checkit() === "ok") {
-                    score++;
-                    scoreElement.innerHTML = score;
-                }
-                //console.log(ass)
-                if (status === "lose") {
-                    list_array()
-                    $('#myModal').modal('show');
-                    $("#myModal").on('hidden.bs.modal', function() {
-                        window.location.reload();
-                    });
-                }
-                get_ass();
-                $('#input').val('');
-                //setTimeout(counter, 1000);
-
-            } else {
-                get_ass();
-                counter();
-                if (checkit() === "ok") {
-                    score++;
-                    scoreElement.innerHTML = score;
-                }
-                //console.log(ass)
-                if (status === "lose") {
-                    list_array()
-                    $('#myModal').modal('show');
-                    $("#myModal").on('hidden.bs.modal', function() {
-                        window.location.reload();
-                    });
-                }
-            }
-        }
-    }
-    </script>
-    <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function() {
@@ -299,5 +140,164 @@ ul {
     <script src="static/js/vendor/video.js"></script>
     <script src="static/js/flat-ui.min.js"></script>
 </body>
+<script>
+var time = 6;
+var timecounter = 0;
+var btn = "Guess";
+var status = "win";
+var score = 0;
+var ass = [];
+var check = 0;
+var ranWord = "";
+var input = "";
+var wordElement = document.getElementById('newWord');
+var scoreElement = document.getElementById('score');
+var inputElement = document.getElementById('input');
+var score2Element = document.getElementById('view_score');
+var reasonsElement = document.getElementById('reasons');
+var items = document.getElementById("reasons");
+var items2 = document.getElementById("reasons2");
+var item = document.createElement("li");
+var item2 = document.createElement("li");
+
+function list_array() {
+    console.log(ass)
+        //scoreElement.innerHTML = score;
+
+
+    var d = (ass.length) / 2
+    for (var i = 0; i < d; i++) {
+
+        item.innerHTML = ass[i];
+        items.appendChild(item);
+    }
+    for (var j = (d); j < ass.length; j++) {
+
+        item2.innerHTML = ass[j];
+        items2.appendChild(item2);
+    }
+
+}
+
+function share() {
+    FB.ui({
+        method: 'feed',
+        title: 'I got a score of ' + score + 'points',
+        link: 'http://wordass.herokuapp.com/',
+        caption: 'Think you can beat me? Try!',
+    }, function(response) {
+        alert('Thank you for sharing!')
+    });
+}
+
+
+function counter() {
+    var timerElement = document.getElementById('counter');
+    if (time > 0) {
+        time--;
+
+    } else {
+        time = 6;
+        //status = "lose";
+        list_array()
+            //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
+        $('#myModal').modal('show');
+        $("#myModal").on('hidden.bs.modal', function() {
+            window.location.reload();
+        });
+        return;
+    }
+
+    timerElement.innerHTML = time;
+    setTimeout(counter, 1000);
+
+}
+
+//$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
+
+function checkit() {
+    input = $('#input').val()
+    if (jQuery.inArray(input, ass) === -1) {
+        list_array()
+        $('#myModal').modal('show');
+        $("#myModal").on('hidden.bs.modal', function() {
+            window.location.reload();
+        });
+        return
+    } else {
+        return "ok"
+    }
+}
+
+function get_ass() {
+    $.ajax({
+        dataType: "json",
+        url: '/words',
+        data: {
+            "input": input
+        },
+        success: function(word) {
+            var wordElement = document.getElementById('newWord');
+            //var scoreElement = document.getElementById('score');
+            console.log(word)
+
+            $('#input').val('');
+            ranWord = word["word"];
+            wordElement.innerHTML = ranWord
+            ass = word["ass"]
+        }
+    });
+}
+
+
+
+function timedText() {
+    var btnElement = document.getElementById('btn');
+    var btnVal = btnElement.innerHTML;
+    if (btnVal === "Start!") {
+        btnElement.innerHTML = btn
+        get_ass();
+        counter();
+    } else {
+        if (timecounter < 1) {
+            //counter();
+
+            time = 7;
+            timecounter++
+            if (checkit() === "ok") {
+                score++;
+                scoreElement.innerHTML = score;
+            }
+            //console.log(ass)
+            if (status === "lose") {
+                list_array()
+                $('#myModal').modal('show');
+                $("#myModal").on('hidden.bs.modal', function() {
+                    window.location.reload();
+                });
+            }
+            get_ass();
+            $('#input').val('');
+            //setTimeout(counter, 1000);
+
+        } else {
+            get_ass();
+            counter();
+            if (checkit() === "ok") {
+                score++;
+                scoreElement.innerHTML = score;
+            }
+            //console.log(ass)
+            if (status === "lose") {
+                list_array()
+                $('#myModal').modal('show');
+                $("#myModal").on('hidden.bs.modal', function() {
+                    window.location.reload();
+                });
+            }
+        }
+    }
+}
+</script>
 
 </html>
