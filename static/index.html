@@ -192,7 +192,7 @@ function get_ass() {
             //var scoreElement = document.getElementById('score');
             console.log(word)
 
-            inputElement.innerHTML = "";
+            $('#input').val('');
             ranWord = word["word"];
             wordElement.innerHTML = ranWord
             ass = word["ass"]
@@ -228,7 +228,7 @@ function timedText() {
                 });
             }
             get_ass();
-            inputElement.innerHTML = "";
+            $('#input').val('');
             //setTimeout(counter, 1000);
 
         } else {
