@@ -31,8 +31,8 @@
 .view_score {
     color: green;
 }
-`
-ul {
+
+` ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
@@ -41,14 +41,6 @@ ul {
 
 <body>
     <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '473353296155659',
-            xfbml: true,
-            version: 'v2.3'
-        });
-    };
-
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -65,7 +57,8 @@ ul {
             <div class="modal-content">
                 <center>
                     <h1>Your Score: &nbsp;<span class= "view_score" id= "view_score">0</span> </h1>
-                    <h3 class="word">You Lose</h3>
+                    <h3 class="word">You Lose <span><div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            </div></span></h3>
                     <h4 class="lead">(Possible Answers)</h4>
                 </center>
                 <div class="jumbotron">
@@ -85,8 +78,6 @@ ul {
     </div>
     <center>
         <div class="container">
-            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
-            </div>
             <h2><img src="static/img/this.word.png"></h2>
         </div>
     </center>
@@ -172,10 +163,6 @@ function counter() {
         //status = "lose";
         list_array()
         $('#myModal').modal('show');
-        FB.ui({
-            method: 'share',
-            href: 'http://wordass.herokuapp.com',
-        }, function(response) {});
         $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
         });
