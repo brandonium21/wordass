@@ -39,9 +39,9 @@ ul {
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <center>
-                    <h1>Your Score: &nbsp;<span id= "view_score">0</span> </h1>
-                    <h3 id="word">You Lose</h3>
-                    <h4 class= "lead">(Possible Answers)</h4>
+                    <h1>Your Score: &nbsp;<span class= "view_score" id= "view_score">0</span> </h1>
+                    <h3 class="word">You Lose</h3>
+                    <h4 class="lead">(Possible Answers)</h4>
                 </center>
                 <div class="jumbotron">
                     <div class="row">
@@ -153,6 +153,9 @@ function counter() {
         //status = "lose";
         list_array()
         $('#myModal').modal('show');
+        $("#myModal").on('hide', function() {
+            window.location.reload();
+        });
         return;
     }
 
@@ -168,6 +171,9 @@ function checkit() {
     if (jQuery.inArray(input, ass) === -1) {
         list_array()
         $('#myModal').modal('show');
+        $("#myModal").on('hide', function() {
+            window.location.reload();
+        });
         return
     } else {
         return "ok"
@@ -217,6 +223,9 @@ function timedText() {
             if (status === "lose") {
                 list_array()
                 $('#myModal').modal('show');
+                $("#myModal").on('hide', function() {
+                    window.location.reload();
+                });
             }
             get_ass();
             inputElement.innerHTML = "";
@@ -233,6 +242,9 @@ function timedText() {
             if (status === "lose") {
                 list_array()
                 $('#myModal').modal('show');
+                $("#myModal").on('hide', function() {
+                    window.location.reload();
+                });
             }
         }
     }
