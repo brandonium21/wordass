@@ -13,7 +13,7 @@ app = Flask(__name__, static_folder = "static/")
 pkl_file = open('word.pkl', 'rb')
 word_to_array = pickle.load(pkl_file)
 pkl_file.close()
-
+key_array = word_to_array.keys()
 @app.route("/", methods= ['GET', 'POST'])
 def index():
     return app.send_static_file("index.html")
@@ -25,14 +25,15 @@ def static_send(path):
 
 @app.route("/words", methods= ['GET', 'POST'])
 def get_ass():
+
     if request.method == 'GET':
         input_word = request.args['input']
         # Open file and read the data
-        key_array = word_to_array.keys()
         key_index = random.randint(0, len(key_array))
         key = key_array[key_index]
         wordass_array = word_to_array[key]
         print input_word
+        sys.stdout.flush()
 
     return jsonify(word=key, ass= wordass_array)
 
