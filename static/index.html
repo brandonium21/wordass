@@ -113,7 +113,7 @@ function counter() {
         time = 6;
         //status = "lose";
         reasonsElement.innerHTML = ass;
-        $('#myModal').modal('show')
+        $('#myModal').modal('show');
         return;
     }
 
@@ -128,7 +128,7 @@ function checkit() {
     input = $('#input').val()
     if (jQuery.inArray(input, ass) === -1) {
         reasonsElement.innerHTML = ass;
-        $('#myModal').modal('show')
+        $('#myModal').modal('show');
         return
     } else {
         return "ok"
@@ -177,7 +177,7 @@ function timedText() {
             //console.log(ass)
             if (status === "lose") {
                 reasonsElement.innerHTML = ass;
-                $('#myModal').modal('show')
+                $('#myModal').modal('show');
             }
             get_ass();
             inputElement.innerHTML = "";
@@ -193,7 +193,7 @@ function timedText() {
             //console.log(ass)
             if (status === "lose") {
                 reasonsElement.innerHTML = ass;
-                $('#myModal').modal('show')
+                $('#myModal').modal('show');
             }
         }
     }
