@@ -153,7 +153,7 @@ function counter() {
         //status = "lose";
         list_array()
         $('#myModal').modal('show');
-        $("#myModal").on('hide', function() {
+        $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
         });
         return;
@@ -171,7 +171,7 @@ function checkit() {
     if (jQuery.inArray(input, ass) === -1) {
         list_array()
         $('#myModal').modal('show');
-        $("#myModal").on('hide', function() {
+        $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
         });
         return
@@ -223,7 +223,7 @@ function timedText() {
             if (status === "lose") {
                 list_array()
                 $('#myModal').modal('show');
-                $("#myModal").on('hide', function() {
+                $("#myModal").on('hidden.bs.modal', function() {
                     window.location.reload();
                 });
             }
@@ -242,7 +242,7 @@ function timedText() {
             if (status === "lose") {
                 list_array()
                 $('#myModal').modal('show');
-                $("#myModal").on('hide', function() {
+                $("#myModal").on('hidden.bs.modal', function() {
                     window.location.reload();
                 });
             }
