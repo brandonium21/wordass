@@ -6,7 +6,7 @@ import pickle
 import json
 from flask import jsonify
 import random
-
+import sys
 app = Flask(__name__, static_folder = "static/")
 #/Users/Brandonium21/Documents/wordass/static/
 
