@@ -7,7 +7,8 @@ import json
 from flask import jsonify
 import random
 
-app = Flask(__name__, static_folder = "/Users/Brandonium21/Documents/wordass/static/")
+app = Flask(__name__, static_folder = "/static/")
+#/Users/Brandonium21/Documents/wordass/static/
 
 pkl_file = open('../word.pkl', 'rb')
 word_to_array = pickle.load(pkl_file)
@@ -15,7 +16,8 @@ pkl_file.close()
 
 @app.route("/", methods= ['GET', 'POST'])
 def index():
-    return send_file("/Users/Brandonium21/Documents/wordass/index.html")
+    return send_file("/index.html")
+    #/Users/Brandonium21/Documents/wordass/index.html
 
 @app.route("/static/<path:path>")
 def static_send(path):
