@@ -23,6 +23,10 @@
     color: red;
 }
 
+.view_score {
+    color: green;
+}
+
 ul {
     list-style-type: none;
     padding: 0px;
@@ -35,7 +39,9 @@ ul {
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <center>
-                    <h1 id="word">You Lose</h1>
+                    <h1>Your Score: &nbsp;<span id= "view_score">0</span> </h1>
+                    <h3 id="word">You Lose</h3>
+                    <h4 class= "lead">(Possible Answers)</h4>
                 </center>
                 <div class="jumbotron">
                     <div class="row">
@@ -115,13 +121,14 @@ var input = "";
 var wordElement = document.getElementById('newWord');
 var scoreElement = document.getElementById('score');
 var inputElement = document.getElementById('input');
+var scoreElement = document.getElementById('view_score');
 var reasonsElement = document.getElementById('reasons');
 var items = document.getElementById("reasons");
 var items2 = document.getElementById("reasons2");
 
 function list_array() {
     console.log(ass)
-
+    scoreElement.innerHTML = score;
     var d = (ass.length) / 2
     for (var i = 0; i < d; i++) {
         var item = document.createElement("li");
