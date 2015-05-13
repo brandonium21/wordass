@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <title>This.Word</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="http://wordass.herokuapp.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="This.Word addictive word association game" />
+    <meta property="og:description" content="How good are you with words? Compare your score with your friends!" />
+    <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
     <!-- Loading Bootstrap -->
     <link href="static/css/vendor/bootstrap.min.css" rel="stylesheet">
     <!-- Loading Flat UI -->
@@ -17,18 +22,6 @@
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-    <script type="text/javascript">
-    var switchTo5x = true;
-    </script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
-    stLight.options({
-        publisher: "b177c43a-9c2e-465e-99aa-e4096f4708f0",
-        doNotHash: false,
-        doNotCopy: false,
-        hashAddressBar: false
-    });
-    </script>
 </head>
 <style type="text/css">
 .word {
@@ -47,17 +40,30 @@ ul {
 </style>
 
 <body>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '473353296155659',
+            xfbml: true,
+            version: 'v2.3'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <center>
-                    <span class='st_sharethis_large' displayText='ShareThis'></span>
-                    <span class='st_facebook_large' displayText='Facebook'></span>
-                    <span class='st_twitter_large' displayText='Tweet'></span>
-                    <span class='st_linkedin_large' displayText='LinkedIn'></span>
-                    <span class='st_pinterest_large' displayText='Pinterest'></span>
-                    <span class='st_email_large' displayText='Email'></span>
-                    <br>
                     <h1>Your Score: &nbsp;<span class= "view_score" id= "view_score">0</span> </h1>
                     <h3 class="word">You Lose</h3>
                     <h4 class="lead">(Possible Answers)</h4>
@@ -79,6 +85,8 @@ ul {
     </div>
     <center>
         <div class="container">
+            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            </div>
             <h2><img src="static/img/this.word.png"></h2>
         </div>
     </center>
@@ -164,6 +172,10 @@ function counter() {
         //status = "lose";
         list_array()
         $('#myModal').modal('show');
+        FB.ui({
+            method: 'share',
+            href: 'https://developers.facebook.com/docs/',
+        }, function(response) {});
         $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
         });
