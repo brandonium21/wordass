@@ -16,7 +16,7 @@ pkl_file.close()
 
 @app.route("/", methods= ['GET', 'POST'])
 def index():
-    return send_static_file("index.html")
+    return app.send_static_file("index.html")
     #/Users/Brandonium21/Documents/wordass/index.html
 
 @app.route("/static/<path:path>")
