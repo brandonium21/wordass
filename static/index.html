@@ -41,6 +41,10 @@
     function list_array() {
         console.log(ass)
         scoreElement.innerHTML = score;
+        if (scoreElement === null) {
+            scoreElement.innerHTML = score;
+        }
+
         var d = (ass.length) / 2
         for (var i = 0; i < d; i++) {
             var item = document.createElement("li");
