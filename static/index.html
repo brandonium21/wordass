@@ -116,21 +116,22 @@ var wordElement = document.getElementById('newWord');
 var scoreElement = document.getElementById('score');
 var inputElement = document.getElementById('input');
 var reasonsElement = document.getElementById('reasons');
+var items = document.getElementById("reasons");
+var items2 = document.getElementById("reasons2");
 
 function list_array() {
     console.log(ass)
-    var items = document.getElementById("reasons");
-    var items2 = document.getElementById("reasons2");
-    var d = (ass.length / 2)
+
+    var d = (ass.length) / 2
     for (var i = 0; i < d; i++) {
-        for (var j = (d + 1); j < ass.length; j++) {
-            var item = document.createElement("li");
-            var item2 = document.createElement("li");
-            item.innerHTML = ass[i];
-            item2.innerHTML = ass[j];
-            items.appendChild(item);
-            items2.appendChild(item2);
-        }
+        var item = document.createElement("li");
+        item.innerHTML = ass[i];
+        items.appendChild(item);
+    }
+    for (var j = (d); j < ass.length; j++) {
+        var item2 = document.createElement("li");
+        item2.innerHTML = ass[j];
+        items2.appendChild(item2);
     }
 
 }
