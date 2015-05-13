@@ -5,6 +5,7 @@ PyYAML==3.11
 RandomWords==0.1.12
 Unirest==1.1.7
 Werkzeug==0.10.4
+gunicorn==19.3.0
 itsdangerous==0.24
 numpy==1.9.2
 poster==0.8.1
