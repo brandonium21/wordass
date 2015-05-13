@@ -1,0 +1,66 @@
+Metadata-Version: 2.0
+Name: RandomWords
+Version: 0.1.12
+Summary: A useful module for a random text, e-mails and lorem ipsum.
+Home-page: https://github.com/tomislater/RandomWords
+Author: Tomek Święcicki
+Author-email: tomislater@gmail.com
+License: LICENSE.txt
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: ujson
+Provides-Extra: testing
+Requires-Dist: pytest; extra == 'testing'
+
+RandomWords
+===========
+
+.. image:: https://travis-ci.org/tomislater/RandomWords.png?branch=master
+    :target: https://travis-ci.org/tomislater/RandomWords
+    :alt: Tests for RandomWords
+
+.. image:: https://coveralls.io/repos/tomislater/RandomWords/badge.png?branch=master
+    :target: https://coveralls.io/r/tomislater/RandomWords?branch=master
+    :alt: Coverage Status
+
+.. image:: https://pypip.in/v/RandomWords/badge.png
+    :target: https://crate.io/packages/RandomWords/
+    :alt: Latest PyPI version
+
+.. image:: https://pypip.in/d/RandomWords/badge.png
+    :target: https://crate.io/packages/RandomWords/
+    :alt: Number of PyPI downloads
+
+Overview
+--------
+
+RandomWords is a useful package for generate random words, nicks, e-mails and lorem ipsum.
+
+Install
+-------
+
+Quick way::
+
+    pip install RandomWords
+
+or::
+
+    git clone https://github.com/tomislater/RandomWords.git
+    cd RandomWords
+    python setup.py install
+
+How to use
+----------
+
+Please see `documentation <https://randomwords.readthedocs.org/en/latest/how_to_use.html>`_
+
+
