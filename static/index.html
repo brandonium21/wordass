@@ -31,7 +31,7 @@
 .view_score {
     color: green;
 }
-
+`
 ul {
     list-style-type: none;
     padding: 0px;
@@ -174,7 +174,7 @@ function counter() {
         $('#myModal').modal('show');
         FB.ui({
             method: 'share',
-            href: 'https://developers.facebook.com/docs/',
+            href: 'http://wordass.herokuapp.com',
         }, function(response) {});
         $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
