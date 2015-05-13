@@ -1,5 +1,5 @@
 from flask import Flask, send_file, send_from_directory
-from flask import request
+from flask import request, send_static_file
 import unirest
 import threading
 import pickle
@@ -10,7 +10,7 @@ import random
 app = Flask(__name__)#, static_folder = "/static/")
 #/Users/Brandonium21/Documents/wordass/static/
 
-pkl_file = open('../word.pkl', 'rb')
+pkl_file = open('word.pkl', 'rb')
 word_to_array = pickle.load(pkl_file)
 pkl_file.close()
 
