@@ -7,7 +7,7 @@ import json
 from flask import jsonify
 import random
 
-app = Flask(__name__, static_folder = "/static/")
+app = Flask(__name__, static_folder = "static/")
 #/Users/Brandonium21/Documents/wordass/static/
 
 pkl_file = open('word.pkl', 'rb')
