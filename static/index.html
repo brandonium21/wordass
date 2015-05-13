@@ -25,6 +25,20 @@
 </style>
 
 <body>
+    <div class="modal fade bs-example-modal-lg" data-target="#myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <center>
+                    <h1 id="word">You Lose</h1>
+                </center>
+                <div class="container">
+                    <div class="jumbotron">
+                        <p id="reasons"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <center>
         <div class="container">
             <h2>WordAss</h2>
@@ -88,6 +102,8 @@ var input = "";
 var wordElement = document.getElementById('newWord');
 var scoreElement = document.getElementById('score');
 var inputElement = document.getElementById('input');
+var reasonsElement = document.getElementById('reasons');
+
 
 function counter() {
     var timerElement = document.getElementById('counter');
@@ -97,7 +113,8 @@ function counter() {
     } else {
         time = 6;
         //status = "lose";
-        alert("you lose")
+        reasonsElement.innerHTML = ass;
+        $('#myModal').modal('show')
         return;
     }
 
@@ -111,7 +128,8 @@ function counter() {
 function checkit() {
     input = $('#input').val()
     if (jQuery.inArray(input, ass) === -1) {
-        alert("you lose")
+        reasonsElement.innerHTML = ass;
+        $('#myModal').modal('show')
         return
     } else {
         return "ok"
@@ -154,12 +172,13 @@ function timedText() {
             time = 7;
             timecounter++
             if (checkit() === "ok") {
-                score ++;
+                score++;
                 scoreElement.innerHTML = score;
             }
             //console.log(ass)
             if (status === "lose") {
-                alert("you lose")
+                reasonsElement.innerHTML = ass;
+                $('#myModal').modal('show')
             }
             get_ass();
             inputElement.innerHTML = "";
@@ -169,12 +188,13 @@ function timedText() {
             get_ass();
             counter();
             if (checkit() === "ok") {
-                score ++;
+                score++;
                 scoreElement.innerHTML = score;
             }
             //console.log(ass)
             if (status === "lose") {
-                alert("you lose")
+                reasonsElement.innerHTML = ass;
+                $('#myModal').modal('show')
             }
         }
     }
