@@ -182,9 +182,8 @@ function list_array() {
 function share() {
     FB.ui({
         method: 'feed',
-        title: 'I got a score of ' + score + 'points',
+        caption: 'Think you can beat me? Try! I got a score of ' + score + 'points',
         link: 'http://wordass.herokuapp.com/',
-        caption: 'Think you can beat me? Try!',
     }, function(response) {
         alert('Thank you for sharing!')
     });
