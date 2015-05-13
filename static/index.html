@@ -33,7 +33,8 @@
                 </center>
                 <div class="container">
                     <div class="jumbotron">
-                        <p id="reasons"></p>
+                        <ul id="reasons">
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -104,6 +105,17 @@ var scoreElement = document.getElementById('score');
 var inputElement = document.getElementById('input');
 var reasonsElement = document.getElementById('reasons');
 
+function list_array() {
+    var items = document.getElementById("reasons");
+
+    for (var i = 0; i < ass.length; i++) {
+        var item = document.createElement("li");
+        item.innerHTML = ass[i];
+        items.appendChild(item);
+    }
+
+}
+
 function counter() {
     var timerElement = document.getElementById('counter');
     if (time > 0) {
@@ -112,7 +124,7 @@ function counter() {
     } else {
         time = 6;
         //status = "lose";
-        reasonsElement.innerHTML = ass;
+        list_array()
         $('#myModal').modal('show');
         return;
     }
@@ -127,7 +139,7 @@ function counter() {
 function checkit() {
     input = $('#input').val()
     if (jQuery.inArray(input, ass) === -1) {
-        reasonsElement.innerHTML = ass;
+        list_array()
         $('#myModal').modal('show');
         return
     } else {
@@ -176,7 +188,7 @@ function timedText() {
             }
             //console.log(ass)
             if (status === "lose") {
-                reasonsElement.innerHTML = ass;
+                list_array()
                 $('#myModal').modal('show');
             }
             get_ass();
@@ -192,7 +204,7 @@ function timedText() {
             }
             //console.log(ass)
             if (status === "lose") {
-                reasonsElement.innerHTML = ass;
+                list_array()
                 $('#myModal').modal('show');
             }
         }
