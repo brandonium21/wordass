@@ -121,8 +121,8 @@ function list_array() {
     var items = document.getElementById("reasons");
     var items2 = document.getElementById("reasons2");
     d = (ass.length / 2)
-    for (var i = 0; i < (d / 2); i++) {
-        for (var j = d + 1; j < ass.length; j++) {
+    for (var i = 0; i < d; i++) {
+        for (var j = d; j < ass.length; j++) {
             var item = document.createElement("li");
             var item2 = document.createElement("li");
             item.innerHTML = ass[i];
