@@ -37,7 +37,9 @@
     var reasonsElement = document.getElementById('reasons');
     var items = document.getElementById("reasons");
     var items2 = document.getElementById("reasons2");
-
+    var item = document.createElement("li");
+    var item2 = document.createElement("li");
+    
     function list_array() {
         console.log(ass)
             //scoreElement.innerHTML = score;
@@ -45,12 +47,12 @@
 
         var d = (ass.length) / 2
         for (var i = 0; i < d; i++) {
-            var item = document.createElement("li");
+            
             item.innerHTML = ass[i];
             items.appendChild(item);
         }
         for (var j = (d); j < ass.length; j++) {
-            var item2 = document.createElement("li");
+            
             item2.innerHTML = ass[j];
             items2.appendChild(item2);
         }
