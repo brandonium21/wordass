@@ -6,7 +6,6 @@
     <title>This.Word</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:url" content="http://wordass.herokuapp.com" />
-    
     <meta property="og:description" content="How good are you with words? Compare your score with your friends!" />
     <meta property="og:image" content="http://wordass.herokuapp.com/static/img/2.png" />
     <!-- Loading Bootstrap -->
@@ -77,7 +76,9 @@ ul {
                     <h1>Your Score: &nbsp;<span class= "view_score" id= "view_score">0</span> </h1>
                     <h3 class="word">You Lose </h3>
                     <h4 class="lead">(Possible Answers)</h4>
-                    <div class="fb-share-button" data-href="http://wordass.herokuapp.com/" data-layout="button_count"></div>
+                    <br>
+                    <button type="button" onclick="share();" class="btn btn-md btn-danger">Share!</button>
+                    <br>
                 </center>
                 <div class="jumbotron">
                     <div class="row">
@@ -174,6 +175,18 @@ function list_array() {
 
 }
 
+function share() {
+    FB.ui({
+        method: 'feed',
+        title: 'I got a score of ' + score + 'points'
+        link: 'http://wordass.herokuapp.com/',
+        caption: 'Think you can beat me? Try!',
+    }, function(response) {
+        alert('Thank you for sharing!')
+    });
+}
+
+
 function counter() {
     var timerElement = document.getElementById('counter');
     if (time > 0) {
@@ -183,7 +196,7 @@ function counter() {
         time = 6;
         //status = "lose";
         list_array()
-        //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
+            //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
         $('#myModal').modal('show');
         $("#myModal").on('hidden.bs.modal', function() {
             window.location.reload();
