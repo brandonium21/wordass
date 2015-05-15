@@ -225,7 +225,7 @@ $('#input').keypress(function(e) {
             }
 
             timerElement.innerHTML = time;
-            //setTimeout(counter, 1000);
+            setTimeout(counter, 1000);
 
         }
 
@@ -299,7 +299,7 @@ $('#input').keypress(function(e) {
 
                 } else {
                     get_ass();
-                    counter();
+                    //counter();
                     if (checkit() === "ok") {
                         score++;
                         scoreElement.innerHTML = score;
