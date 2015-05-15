@@ -221,11 +221,11 @@ $('#input').keypress(function(e) {
                 $("#myModal").on('hidden.bs.modal', function() {
                     window.location.reload();
                 });
-                return;
+                return
             }
 
             timerElement.innerHTML = time;
-            setTimeout(counter, 1000);
+            //setTimeout(counter, 1000);
 
         }
 
