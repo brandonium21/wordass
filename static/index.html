@@ -220,7 +220,6 @@ function counter() {
     setTimeout(counter, 1000);
 
 }
-
 //$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
 
 function checkit() {
@@ -267,10 +266,10 @@ function timedText() {
         get_ass();
         counter();
     } else {
+        $('#input').focus();
         if (timecounter < 1) {
-            //counter();
-
             time = 11;
+            counter();
             timecounter++
             if (checkit() === "ok") {
                 score++;
