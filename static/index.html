@@ -288,6 +288,7 @@ $('#input').keypress(function(e) {
                     //console.log(ass)
                     if (status === "lose") {
                         list_array()
+                        return
                         $('#myModal').modal('show');
                         $("#myModal").on('hidden.bs.modal', function() {
                             window.location.reload();
