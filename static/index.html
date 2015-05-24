@@ -200,29 +200,29 @@ function share() {
 
 
 function counter(pushed_again) {
-    var timerElement = document.getElementById('counter');
+        var timerElement = document.getElementById('counter');
 
-    if (pushed_again === 'p'){
-        pushed_again = 'np'
-        return
+        if (pushed_again === 'p') {
+            pushed_again = 'np'
+            return
+        }
+        if (time > 0) {
+            time--;
+            setTimeout(counter, 1000);
+        } else {
+            time = 10;
+            //status = "lose";
+            list_array()
+                //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
+            $('#myModal').modal('show');
+            $("#myModal").on('hidden.bs.modal', function() {
+                window.location.reload();
+            });
+            return
+        }
+        timerElement.innerHTML = time;
     }
-    if (time > 0) {
-        time--;
-        setTimeout(counter, 1000);
-    } else {
-        time = 10;
-        //status = "lose";
-        list_array()
-            //document.write("<meta id = 'meta_score' property='og:title' content='I scored " + score + '/>');
-        $('#myModal').modal('show');
-        $("#myModal").on('hidden.bs.modal', function() {
-            window.location.reload();
-        });
-        return
-    }
-    timerElement.innerHTML = time;
-}
-//$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
+    //$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
 
 function checkit() {
     input = $('#input').val()
@@ -271,7 +271,8 @@ function timedText() {
         $('#input').focus();
         if (timecounter < 1) {
             time = 11;
-            counter();
+            pushed_again = 'p';
+            counter(pushed_again);
             timecounter++
             if (checkit() === "ok") {
                 score++;
