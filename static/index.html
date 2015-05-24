@@ -163,7 +163,7 @@ var score2Element = document.getElementById('view_score');
 var reasonsElement = document.getElementById('reasons');
 var items = document.getElementById("reasons");
 var items2 = document.getElementById("reasons2");
-
+var pushed_again = "";
 
 $(document).ready(function() {
     $('#input').focus();
@@ -199,8 +199,13 @@ function share() {
 }
 
 
-function counter() {
+function counter(pushed_again) {
     var timerElement = document.getElementById('counter');
+
+    if (pushed_again === 'p'){
+        pushed_again = 'np'
+        return
+    }
     if (time > 0) {
         time--;
         setTimeout(counter, 1000);
@@ -216,8 +221,6 @@ function counter() {
         return
     }
     timerElement.innerHTML = time;
-    
-
 }
 //$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
 
@@ -263,7 +266,7 @@ function timedText() {
     if (btnVal === "Start!") {
         btnElement.innerHTML = btn
         get_ass();
-        //counter();
+        counter();
     } else {
         $('#input').focus();
         if (timecounter < 1) {
@@ -289,8 +292,10 @@ function timedText() {
             //setTimeout(counter, 1000);
 
         } else {
+            $('#input').focus();
             time = 11;
-            counter();
+            pushed_again = 'p';
+            counter(pushed_again);
             get_ass();
             //counter();
             if (checkit() === "ok") {
