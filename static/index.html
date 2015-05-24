@@ -203,6 +203,7 @@ function counter() {
     var timerElement = document.getElementById('counter');
     if (time > 0) {
         time--;
+        setTimeout(counter, 1000);
     } else {
         time = 10;
         //status = "lose";
@@ -214,9 +215,8 @@ function counter() {
         });
         return
     }
-
     timerElement.innerHTML = time;
-    setTimeout(counter, 1000);
+    
 
 }
 //$('#myForm').ajaxForm({url: '/wordll', type: 'post'})
@@ -268,7 +268,7 @@ function timedText() {
         $('#input').focus();
         if (timecounter < 1) {
             time = 11;
-            //counter();
+            counter();
             timecounter++
             if (checkit() === "ok") {
                 score++;
